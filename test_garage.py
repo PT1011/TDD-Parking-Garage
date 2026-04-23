@@ -40,3 +40,11 @@ def test_exit_garage_works():
         }
     exit_garage(garage_dict, 'Toyota')
     assert 'Toyota' not in garage_dict['cars'].keys()
+
+def test_exit_garage_car_doesnt_exist():
+    with pytest.raises(KeyError):
+        garage_dict = {
+        "capacity": 10,   # total number of spots
+        "cars": {'Toyota12': 14}         # car_id -> entry_hour (int)
+        }
+        exit_garage(garage_dict, 'Toyota')
