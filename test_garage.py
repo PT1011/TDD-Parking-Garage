@@ -16,5 +16,5 @@ def test_enter_garage_full():
         "capacity": 1,   # total number of spots
         "cars": {'Toyota': 14}         # car_id -> entry_hour (int)
         }
-        enter(garage_dict, 'Bugatti17', 13)
+        enter_garage(garage_dict, 'Bugatti17', 13)
         
