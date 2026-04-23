@@ -1,5 +1,5 @@
 import pytest
-from garage import enter_garage, exit_garage, get_available_spots
+from garage import enter_garage, exit_garage, get_available_spots, calculate_fee
 
 def test_enter_garage_works():
     garage_dict = {
@@ -64,3 +64,6 @@ def test_get_available_spots_garage_is_full():
         }
     
     assert get_available_spots(garage_dict) == 0
+
+def test_calculate_fee_works():
+    assert calculate_fee(3, 2) == 6
