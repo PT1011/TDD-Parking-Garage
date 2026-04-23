@@ -6,7 +6,6 @@ def test_enter_garage_works():
     "capacity": 10,   # total number of spots
     "cars": {}         # car_id -> entry_hour (int)
     }
-
     enter_garage(garage_dict, 'Bugatti17', 13)
     assert 'Bugatti17' in garage_dict['cars'].keys()
 
@@ -26,3 +25,10 @@ def test_enter_garage_car_exists():
         }
         enter_garage(garage_dict, 'Toyota', 14)
         
+def test_enter_garage_car_time_not_int():
+    with pytest.raises(TypeError):
+        garage_dict = {
+        "capacity": 10,   # total number of spots
+        "cars": {}         # car_id -> entry_hour (int)
+        }
+        enter_garage(garage_dict, 'Bugatti12', 'fourteen')
