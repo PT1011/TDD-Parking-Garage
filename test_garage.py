@@ -7,4 +7,4 @@ def test_enter_garage_works():
     }
 
     enter_garage(garage_dict, 'Bugatti17', 13)
-    assert 'Bugatti17' in garage_dict[cars].keys()
+    assert 'Bugatti17' in garage_dict['cars'].keys()
