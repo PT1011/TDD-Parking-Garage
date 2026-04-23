@@ -17,4 +17,12 @@ def test_enter_garage_full():
         "cars": {'Toyota': 14}         # car_id -> entry_hour (int)
         }
         enter_garage(garage_dict, 'Bugatti17', 13)
+
+def test_enter_garage_car_exists():
+    with pytest.raises(ValueError):
+        garage_dict = {
+        "capacity": 2,   # total number of spots
+        "cars": {'Toyota': 14}         # car_id -> entry_hour (int)
+        }
+        enter_garage(garage_dict, 'Toyota', 14)
         
