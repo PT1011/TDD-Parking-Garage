@@ -4,6 +4,9 @@ def enter_garage(garage, car_id, entry_hour):
     
     if car_id in garage['cars'].keys():
         raise ValueError("No duplicate cars")
+    
+    if not isinstance(entry_hour, int):
+        raise TypeError("Entry hour must be an integer")
 
     garage['cars'][car_id] = entry_hour
 
