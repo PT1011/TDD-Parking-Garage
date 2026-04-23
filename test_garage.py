@@ -56,3 +56,11 @@ def test_get_available_spots_works():
         }
 
     assert get_available_spots(garage_dict) == 9
+
+def test_get_available_spots_garage_is_full():
+    garage_dict = {
+        "capacity": 1,   # total number of spots
+        "cars": {'Toyota12': 14}         # car_id -> entry_hour (int)
+        }
+    
+    assert get_available_spots(garage_dict) == 0
