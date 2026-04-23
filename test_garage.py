@@ -39,4 +39,4 @@ def test_exit_garage_works():
         "cars": {'Toyota': 14}         # car_id -> entry_hour (int)
         }
     exit_garage(garage_dict, 'Toyota')
-    assert 'Toyota' garage_dict['cars'].keys()
+    assert 'Toyota' not in garage_dict['cars'].keys()
