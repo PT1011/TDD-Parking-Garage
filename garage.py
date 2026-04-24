@@ -21,7 +21,12 @@ def get_available_spots(garage):
     return garage["capacity"] - len(garage["cars"])
 
 def calculate_fee(hours, rate):
+
     if hours < 0 or rate < 0:
         raise ValueError("Hours and rate must be a positive number")
+    
+    if not isinstance(hours, (int, float)) or not isinstance(rate, (int, float)):
+        raise TypeError("Hours and rate must be a number")
+        
     return round(hours * rate, 2)
 
