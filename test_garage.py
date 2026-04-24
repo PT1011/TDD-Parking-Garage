@@ -65,7 +65,11 @@ def test_get_available_spots_garage_is_full():
     
     assert get_available_spots(garage_dict) == 0
 
-
 @pytest.mark.parametrize("hours, rate, expected",[(3, 2, 6.00), (11, 2, 22.00), (10, 0.2, 2.00)])
 def test_calculate_fee_multiple_test(hours, rate, expected):
     assert calculate_fee(hours, rate) == expected
+
+@pytest.mark.parametrize("hours, rate",[(-3, 2), (11, -2)])
+def test_calculate_fee_multiple_test(hours, rate):
+    with pytest.raises(ValueError) 
+        calculate_fee(hours, rate)
