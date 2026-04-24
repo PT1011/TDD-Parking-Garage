@@ -22,3 +22,7 @@ def get_available_spots(garage):
 
 def calculate_fee(hours, rate):
     return 6.00
+
+@pytest.mark.parametrize("hours, rate, expected",[(3, 2, 6.00), (11, 2, 22.00), (10, 0.2, 5.00)])
+def calculate_fee(hours, rate, expected):
+    assert calculate_fee(hours) == expected
