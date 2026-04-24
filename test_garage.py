@@ -70,6 +70,11 @@ def test_calculate_fee_multiple_test(hours, rate, expected):
     assert calculate_fee(hours, rate) == expected
 
 @pytest.mark.parametrize("hours, rate",[(-3, 2), (11, -2)])
-def test_calculate_fee_multiple_test(hours, rate):
+def test_calculate_fee_not_positive_number(hours, rate):
     with pytest.raises(ValueError):
+        calculate_fee(hours, rate)
+
+@pytest.mark.parametrize("hours, rate",[("Hello", 2), (11, "Goodbye")])
+def test_calculate_fee_not_numeric(hours, rate):
+    with pytest.raises(TypeError):
         calculate_fee(hours, rate)
