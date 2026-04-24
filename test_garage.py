@@ -71,5 +71,5 @@ def test_calculate_fee_multiple_test(hours, rate, expected):
 
 @pytest.mark.parametrize("hours, rate",[(-3, 2), (11, -2)])
 def test_calculate_fee_multiple_test(hours, rate):
-    with pytest.raises(ValueError) 
+    with pytest.raises(ValueError):
         calculate_fee(hours, rate)
